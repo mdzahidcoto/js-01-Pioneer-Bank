@@ -26,48 +26,65 @@
         </div>
     </div>
 
-    <div id="account-area" class=" mx-auto mt-4"> <!--hidden need to added-->
-        <div class="mx-4 p-3 border rounded w-full">
-            <h2 class="font-bold text-center pt-5 pb-4">Account Section</h2>
-            <div class="columns-3">
-                <div class="border rounded bg-green-500 shadow">
+    <div id="account-area" class="hidden mx-4 mt-4">
+        <div class="grid grid-rows-2 gap-4 border rounded">
+            <div>
+                <h2 class="font-bold text-center">Account Section</h2>
+            </div>
+            <div class="grid grid-cols-3 gap-4 pb-6">
+                <div class="border rounded bg-green-500 shadow mx-4">
                     <h1 class="text-center text-xl text-white">Deposit</h1>
                     <p class="font-bold text-xl m-3 px-5">$<span class="text-right" id="deposit"> 0</span></p>
                 </div>
-                <div class="border rounded bg-red-500 shadow">
+                <div class="border rounded bg-red-500 shadow mx-4">
                     <h1 class="text-center text-xl text-white">Withdraw</h1>
                     <p class="font-bold text-xl m-3 px-5">$<span class="text-right" id="withdraw"> 0</span></p>
                 </div>
-                <div class="border rounded bg-yellow-300 shadow">
+                <div class="border rounded bg-yellow-300 shadow mx-4">
                     <h1 class="text-center text-xl text-white">Balance</h1>
                     <p class="font-bold text-xl m-3 px-5">$<span class="text-right" id="balance"> 1240</span></p>
                 </div>
             </div>
         </div>
-        <!--deposit area-->
-        <div class="mx-auto" id="deposit-area">
-            <h1 class="font-bold text-left pt-3 mx-6">Deposit or Withdraw Amount</h1>
-            <div class="columns-2">
-                <div class="my-8">
-                    <form action="">
-                        <label for="" class="border rounded shadow mt-2"></label>
-                        <input class="border shadow rounded w-full mx-4" id="amountChanged" type="number">
-                    </form>
+        <!--deposit or withdraw selection area-->
+        <div class="grid grid-rows-2 gap-6 border shadow mt-3" id="option-area">
+            <div class="font-bold mx-auto mt-8">
+                <h1>Choice Your Desire</h1>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="mx-auto py-3">
+                    <button class="px-5 py-2 rounded border shadow bg-green-500 text-white font-bold">Deposit</button>
                 </div>
-                <div class="content-between">
-                    <div class="gid-rows-2">
-                        <div class="m-2">
-                            <button class="bg-green-500 font-bold text-white px-6 py-2 rounded shadow">Deposit</button>
-                        </div>
-                        <div class="m-2">
-                            <button class="bg-red-500 font-bold text-white px-4 py-2 rounded shadow">Withdraw</button>
-                        </div>
-                    </div>
+                <div class="mx-auto py-3">
+                    <button class="px-3 py-2 rounded border shadow bg-red-500 text-white font-bold">Withdraw</button>
                 </div>
             </div>
         </div>
+        <!--deposit section-->
+        <div class="grid grid-rows-2 gap-2 mt-6 hidden" id="deposit-amount">
+            <div class="mx-auto w-full text-center">
+                <h1 class="font-bold text-xl">Enter your deposit amount</h1>
+                <form>
+                    <input type="number" class="border rounded mx-auto mt-2 px-3 py-4" placeholder="Deposit">
+                </form>
+            </div>
+            <div class="text-center">
+                <button class="border shadow rounded bg-green-500 text-white font-bold px-6 py-3">Deposit Amount</button>
+            </div>
+        </div>
+        <!--Withdraw section-->
+        <div class="grid grid-rows-2 gap-2 mt-6 hidden" id="withdraw-amount">
+            <div class="mx-auto w-full text-center">
+                <h1 class="font-bold text-xl">Enter your withdraw amount</h1>
+                <form>
+                    <input type="number" class="border rounded mx-auto mt-2 px-3 py-4" placeholder="Withdraw">
+                </form>
+            </div>
+            <div class="text-center">
+                <button class="border shadow rounded bg-red-500 text-white font-bold px-6 py-3">Withdraw Amount</button>
+            </div>
+        </div>
     </div>
-
     <script>
         //make log in disappears
         let loginPage = document.getElementById("login-btn")
@@ -86,3 +103,25 @@
     </script>
 </body>
 </html>
+<!-- 
+<div class="mx-auto" id="deposit-area">
+    <h1 class="font-bold text-left pt-3 mx-6 mb-0">Deposit or Withdraw Amount</h1>
+    <div class="columns-2">
+        <div class="my-8">
+            <form action="">
+                <label for="" class="border rounded shadow mt-2"></label>
+                <input class="border shadow rounded w-full mx-4" id="amountChanged" type="number">
+            </form>
+        </div>
+        <div class="">
+            <div class="gid-rows-2 content-center">
+                <div class="place-content-center">
+                    <button class="bg-green-500 font-bold text-white px-6 py-2 rounded shadow">Deposit</button>
+                </div>
+                <div class="content-center">
+                    <button class="bg-red-500 font-bold text-white px-4 py-2 rounded shadow">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
