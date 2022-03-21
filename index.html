@@ -93,66 +93,65 @@
             loginArea.style.display = "none";
         });
 
-        //display after click login
+        //display after login click
         let balancePage = document.getElementById("login-btn")
         balancePage.addEventListener("click", function(){
             const balanceAreaShow = document.getElementById("account-area");
             balanceAreaShow.style.display = "block";
         })
 
-        //Deposit option selection area
+        //Deposit selection
         let selectDeposit = document.getElementById("deposit-push")
         selectDeposit.addEventListener("click", function(){
-            const shiftToWant = document.getElementById("option-area")
-            shiftToWant.style.display = "none";
-            const shiftToWant2 = document.getElementById("deposit-amount")
-            shiftToWant2.style.display = "block";
+            setDesire("deposit-amount")
         })
 
-        //withdraw option selection area
+        //withdraw selection
         let selectWidth = document.getElementById("withdraw-push")
         selectWidth.addEventListener("click", function(){
-            const shiftToWant = document.getElementById("option-area")
-            shiftToWant.style.display = "none";
-            const shiftToWant2 = document.getElementById("withdraw-amount")
-            shiftToWant2.style.display = "block";
+            setDesire("withdraw-amount")
         })
-
-        //set deposit amount to balance and deposit
+        //Deposit section
         let depositAmount = document.getElementById("deposit-added")
         depositAmount.addEventListener("click", function(){
-            const depositAmountValue = document.getElementById("deposit-amount-value").value;
-            const depositNumValue = parseFloat(depositAmountValue);
-            const element = document.getElementById("deposit").innerText;
-            const elementNum = parseFloat(element);
-            const totalDeposit = depositNumValue + elementNum;
-            //push to deposit value
-            document.getElementById("deposit").innerText = totalDeposit;
-            document.getElementById("deposit-amount-value").value = "";
-            //change main balance
-            const mainBalance = document.getElementById("balance").innerText;
-            const mainNumBalance = parseFloat(mainBalance);
-            const newMainBalance = mainNumBalance + depositNumValue;
-            document.getElementById("balance").innerText = newMainBalance;
+            const depositNumValue = currentAdd("deposit-amount-value");
+            newAmount("deposit", depositNumValue );
+            newAmount("balance", depositNumValue);
+            
+            document.getElementById("deposit-amount-value").value = "0";
         })
-
-        //set Withdraw amount to balance and deposit
+        
+        //Withdraw section
         let withdrawAmount = document.getElementById("withdraw-added")
         withdrawAmount.addEventListener("click", function(){
-            const withdrawAmountValue = document.getElementById("withdraw-amount-value").value;
-            const withdrawNumValue = parseFloat(withdrawAmountValue);
-            const element = document.getElementById("withdraw").innerText;
-            const elementNum = parseFloat(element);
-            const totalWithdraw = withdrawNumValue + elementNum;
-            //push to withdraw value
-            document.getElementById("withdraw").innerText = totalWithdraw;
-            document.getElementById("withdraw-amount-value").value = "";
-            //change main balance
-            const mainBalance = document.getElementById("balance").innerText;
-            const mainNumBalance = parseFloat(mainBalance);
-            const newMainBalance = mainNumBalance - withdrawNumValue;
-            document.getElementById("balance").innerText = newMainBalance;
+            const withdrawNumValue = currentAdd("withdraw-amount-value");
+            newAmount("withdraw", withdrawNumValue);
+            newAmount("balance", -1 * withdrawNumValue);
+            
+            document.getElementById("withdraw-amount-value").value = "0";
         })
+        
+        
+        //function for desire option to hide after selection
+        function setDesire(id){
+            const shiftToWant = document.getElementById("option-area")
+            shiftToWant.style.display = "none";
+            const shiftToWant2 = document.getElementById(id)
+            shiftToWant2.style.display = "block";
+        }
+        //function of make the input float
+        function currentAdd(id) {
+            const inputValue = document.getElementById(id).value;
+            const inputValueNum = parseFloat(inputValue);
+            return inputValueNum;
+        }
+        //function for add to balance, withdraw, deposit
+        function newAmount(id, value) {
+            const amount = document.getElementById(id).innerText;
+            const amountNum = parseFloat(amount);
+            const netAmount = value + amountNum;
+            document.getElementById(id).innerText = netAmount;
+        }
         
     </script>
 </body>
