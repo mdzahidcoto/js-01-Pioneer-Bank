@@ -8,17 +8,17 @@
     <title>Pioneer Bank</title>
 
 </head>
-<body>
+<body class="bg-lime-50">
     <div id="login-area" class="mx-auto">
         <div class="container mx-auto px-6">
-            <h2 class="text-bold text-gray-700 font-bold text-xl text-center m-10 pt-4">Bank of Pioneer</h2>
-            <div class="px-4 mx-3 mb-5 border shadow">
+            <h2 class="text-bold text-rose-600 font-bold text-xl text-center m-10 pt-4">Bank of Pioneer</h2>
+            <div class="px-4 mx-3 mb-5 border shadow  bg-fuchsia-100">
                 <div class="px-4">
                     <form>
                         <label class="block apparence-none mt-3 font-bold" for="username">Username</label>
-                        <input class="border shadow rounded w-full" id="userName" placeholder="User-Name" type="text">
+                        <input class="border shadow rounded w-full" id="userName" placeholder="Username" type="text">
                         <label class="block apparence-none mt-3 font-bold" for="password">Password</label>
-                        <input class="border shadow rounded w-full" id="password" placeholder="######" type="password">  
+                        <input class="border shadow rounded w-full" id="password" placeholder="*****" type="password">  
                     </form>
                     <button class="shadow px-3 py-2 bg-green-500 rounded my-8 hover:bg-green-400 font-bold text-black" id="login-btn">Login</button>
                 </div>
@@ -29,34 +29,34 @@
     <div id="account-area" class="hidden mx-4 mt-4">
         <div class="grid grid-rows-2 gap-4 border rounded">
             <div>
-                <h2 class="font-bold text-center">Account Section</h2>
+                <h2 class="font-bold text-center pt-10">Account Section</h2>
             </div>
             <div class="grid grid-cols-3 gap-4 pb-6">
                 <div class="border rounded bg-green-500 shadow mx-4">
-                    <h1 class="text-center text-xl text-white">Deposit</h1>
-                    <p class="font-bold text-xl m-3 px-5">$<span class="text-right" id="deposit"> 0</span></p>
+                    <h1 class="text-center text-xl text-white font-bold">Deposit</h1>
+                    <p class="font-bold text-xl m-3 px-5">$<span id="deposit"> 00</span></p>
                 </div>
                 <div class="border rounded bg-red-500 shadow mx-4">
-                    <h1 class="text-center text-xl text-white">Withdraw</h1>
-                    <p class="font-bold text-xl m-3 px-5">$<span class="text-right" id="withdraw"> 0</span></p>
+                    <h1 class="text-center text-xl text-white font-bold">Withdraw</h1>
+                    <p class="font-bold text-xl m-3 px-5">$<span id="withdraw"> 00</span></p>
                 </div>
                 <div class="border rounded bg-yellow-300 shadow mx-4">
-                    <h1 class="text-center text-xl text-white">Balance</h1>
-                    <p class="font-bold text-xl m-3 px-5">$<span class="text-right" id="balance"> 1240</span></p>
+                    <h1 class="text-center text-xl text-white font-bold">Balance</h1>
+                    <p class="font-bold text-xl m-3 px-5">$<span id="balance"> 1240</span></p>
                 </div>
             </div>
         </div>
         <!--deposit or withdraw selection area-->
-        <div class="grid grid-rows-2 gap-6 border shadow mt-3" id="option-area">
+        <div id="option-area" class="grid grid-rows-2 gap-6 border shadow mt-3">
             <div class="font-bold mx-auto mt-8">
                 <h1>Choice Your Desire</h1>
             </div>
             <div class="grid grid-cols-2 gap-6">
                 <div class="mx-auto py-3">
-                    <button class="px-5 py-2 rounded border shadow bg-green-500 text-white font-bold">Deposit</button>
+                    <button class="px-5 py-2 rounded border shadow bg-green-500 text-white font-bold" id="deposit-push">Deposit</button>
                 </div>
                 <div class="mx-auto py-3">
-                    <button class="px-3 py-2 rounded border shadow bg-red-500 text-white font-bold">Withdraw</button>
+                    <button class="px-3 py-2 rounded border shadow bg-red-500 text-white font-bold" id="withdraw-push">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -64,24 +64,24 @@
         <div class="grid grid-rows-2 gap-2 mt-6 hidden" id="deposit-amount">
             <div class="mx-auto w-full text-center">
                 <h1 class="font-bold text-xl">Enter your deposit amount</h1>
-                <form>
-                    <input type="number" class="border rounded mx-auto mt-2 px-3 py-4" placeholder="Deposit">
+                <form class="mt-2">
+                    <input type="number" class="border rounded mx-auto mt-2 px-3 py-4" id="deposit-amount-value" placeholder="Deposit Amount">
                 </form>
             </div>
-            <div class="text-center">
-                <button class="border shadow rounded bg-green-500 text-white font-bold px-6 py-3">Deposit Amount</button>
+            <div class="text-center mt-4">
+                <button class="border shadow rounded bg-green-500 text-white font-bold px-6 py-3" id="deposit-added">Deposit Amount</button>
             </div>
         </div>
         <!--Withdraw section-->
         <div class="grid grid-rows-2 gap-2 mt-6 hidden" id="withdraw-amount">
             <div class="mx-auto w-full text-center">
                 <h1 class="font-bold text-xl">Enter your withdraw amount</h1>
-                <form>
-                    <input type="number" class="border rounded mx-auto mt-2 px-3 py-4" placeholder="Withdraw">
+                <form class="mt-2">
+                    <input type="number" class="border rounded mx-auto mt-2 px-3 py-4" id="withdraw-amount-value" placeholder="Withdraw Amount">
                 </form>
             </div>
-            <div class="text-center">
-                <button class="border shadow rounded bg-red-500 text-white font-bold px-6 py-3">Withdraw Amount</button>
+            <div class="text-center mt-4">
+                <button class="border shadow rounded bg-red-500 text-white font-bold px-6 py-3" id="withdraw-added">Withdraw Amount</button>
             </div>
         </div>
     </div>
@@ -99,29 +99,61 @@
             const balanceAreaShow = document.getElementById("account-area");
             balanceAreaShow.style.display = "block";
         })
+
+        //Deposit option selection area
+        let selectDeposit = document.getElementById("deposit-push")
+        selectDeposit.addEventListener("click", function(){
+            const shiftToWant = document.getElementById("option-area")
+            shiftToWant.style.display = "none";
+            const shiftToWant2 = document.getElementById("deposit-amount")
+            shiftToWant2.style.display = "block";
+        })
+
+        //withdraw option selection area
+        let selectWidth = document.getElementById("withdraw-push")
+        selectWidth.addEventListener("click", function(){
+            const shiftToWant = document.getElementById("option-area")
+            shiftToWant.style.display = "none";
+            const shiftToWant2 = document.getElementById("withdraw-amount")
+            shiftToWant2.style.display = "block";
+        })
+
+        //set deposit amount to balance and deposit
+        let depositAmount = document.getElementById("deposit-added")
+        depositAmount.addEventListener("click", function(){
+            const depositAmountValue = document.getElementById("deposit-amount-value").value;
+            const depositNumValue = parseFloat(depositAmountValue);
+            const element = document.getElementById("deposit").innerText;
+            const elementNum = parseFloat(element);
+            const totalDeposit = depositNumValue + elementNum;
+            //push to deposit value
+            document.getElementById("deposit").innerText = totalDeposit;
+            document.getElementById("deposit-amount-value").value = "";
+            //change main balance
+            const mainBalance = document.getElementById("balance").innerText;
+            const mainNumBalance = parseFloat(mainBalance);
+            const newMainBalance = mainNumBalance + depositNumValue;
+            document.getElementById("balance").innerText = newMainBalance;
+        })
+
+        //set Withdraw amount to balance and deposit
+        let withdrawAmount = document.getElementById("withdraw-added")
+        withdrawAmount.addEventListener("click", function(){
+            const withdrawAmountValue = document.getElementById("withdraw-amount-value").value;
+            const withdrawNumValue = parseFloat(withdrawAmountValue);
+            const element = document.getElementById("withdraw").innerText;
+            const elementNum = parseFloat(element);
+            const totalWithdraw = withdrawNumValue + elementNum;
+            //push to withdraw value
+            document.getElementById("withdraw").innerText = totalWithdraw;
+            document.getElementById("withdraw-amount-value").value = "";
+            //change main balance
+            const mainBalance = document.getElementById("balance").innerText;
+            const mainNumBalance = parseFloat(mainBalance);
+            const newMainBalance = mainNumBalance - withdrawNumValue;
+            document.getElementById("balance").innerText = newMainBalance;
+        })
         
     </script>
 </body>
 </html>
-<!-- 
-<div class="mx-auto" id="deposit-area">
-    <h1 class="font-bold text-left pt-3 mx-6 mb-0">Deposit or Withdraw Amount</h1>
-    <div class="columns-2">
-        <div class="my-8">
-            <form action="">
-                <label for="" class="border rounded shadow mt-2"></label>
-                <input class="border shadow rounded w-full mx-4" id="amountChanged" type="number">
-            </form>
-        </div>
-        <div class="">
-            <div class="gid-rows-2 content-center">
-                <div class="place-content-center">
-                    <button class="bg-green-500 font-bold text-white px-6 py-2 rounded shadow">Deposit</button>
-                </div>
-                <div class="content-center">
-                    <button class="bg-red-500 font-bold text-white px-4 py-2 rounded shadow">Withdraw</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
